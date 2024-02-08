@@ -17,12 +17,22 @@ def find_avg(data,food,nutrient):
     denom=0
     for i in data:
         j = i[0].split(',')
-        
         if(j[0]==food and j[1]==nutrient):
             num += float(j[-1])
             denom += 1
 
     return str(num/denom)
+
+
+def values(data,food,nutrient):
+    l = []
+    for i in data:
+        j = i[0].split(',')
+        if(j[0]==food and j[1]==nutrient):
+            # num += float(j[-1])
+            l.append(float(j[-1]))
+    print(l)
+    return l
 
 
 f = open('CSV_Generator_py\CSVs\FNDDSNutVal.csv', 'r')
@@ -42,19 +52,37 @@ f.close()
 data = data[1:]
 # print(data)
 
-print("raw_apple: thiamin: "+find_avg(data,raw_apple,thiamin)+"x10^-3")
-print("maraschino_cherry: thiamin: "+find_avg(data,maraschino_cherry,thiamin)+"x10^-3")
-print("margarine: thiamin: "+find_avg(data,margarine,thiamin)+"x10^-3")
-print("raw_oyester: thiamin: "+find_avg(data,raw_oyester,thiamin)+"x10^-3")
-print("yeast: thiamin: "+find_avg(data,yeast,thiamin)+"x10^-3")
+def one_b():
+    print("raw_apple: thiamin: "+find_avg(data,raw_apple,thiamin)+"x10^-3")
+    print("maraschino_cherry: thiamin: "+find_avg(data,maraschino_cherry,thiamin)+"x10^-3")
+    print("margarine: thiamin: "+find_avg(data,margarine,thiamin)+"x10^-3")
+    print("raw_oyester: thiamin: "+find_avg(data,raw_oyester,thiamin)+"x10^-3")
+    print("yeast: thiamin: "+find_avg(data,yeast,thiamin)+"x10^-3")
 
-print()
+    print()
 
-print("raw_apple: zinc: "+find_avg(data,raw_apple,zinc)+"x10^-3")
-print("maraschino_cherry: zinc: "+find_avg(data,maraschino_cherry,zinc)+"x10^-3")
-print("margarine: zinc: "+find_avg(data,margarine,zinc)+"x10^-3")
-print("raw_oyester: zinc: "+find_avg(data,raw_oyester,zinc)+"x10^-3")
-print("yeast: zinc: "+find_avg(data,yeast,zinc)+"x10^-3")
+    print("raw_apple: zinc: "+find_avg(data,raw_apple,zinc)+"x10^-3")
+    print("maraschino_cherry: zinc: "+find_avg(data,maraschino_cherry,zinc)+"x10^-3")
+    print("margarine: zinc: "+find_avg(data,margarine,zinc)+"x10^-3")
+    print("raw_oyester: zinc: "+find_avg(data,raw_oyester,zinc)+"x10^-3")
+    print("yeast: zinc: "+find_avg(data,yeast,zinc)+"x10^-3")
+
+# one_b()
+
+
+foods = [raw_apple,maraschino_cherry,margarine,yeast,raw_oyester]
+thiamin_l= []
+zinc_l = []
+
+for i in foods:
+    thiamin_l.append(values(data,i,thiamin))
+    zinc_l.append(values(data,i,zinc))
+
+print(thiamin_l)
+print(zinc_l)
+
+
+
 
 
 
