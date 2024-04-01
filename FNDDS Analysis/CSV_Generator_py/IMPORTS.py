@@ -17,6 +17,7 @@ def convert_to_grams(row):
         return 0
 
 
+"""-----------EQUATION1----------"""
 
 def qn_one(Pxn,pn):
     return (Pxn)/pn
@@ -33,6 +34,8 @@ def eq1(data_list, nutrient_code, xn):
     if(c>POP/2):
         c = POP-c
     return c, nut_c
+
+"""-----------END----------"""
 
 
 """-----------EQUATION2----------"""
@@ -91,7 +94,7 @@ def qn_calculator(xn, data, nutrient):
         return 0
     return numerator/denominator
 
-"""-----------EQUATION2----------"""
+"""-----------END----------"""
 
 # Function for pivoting the dataset
 def pivot_dataset(df):
@@ -136,5 +139,15 @@ def graph_plot_one(nutrient, x_axis,qn, fig_name):
     plt.xlabel('x_axis')
     plt.ylabel('qn')
     plt.show()
+    
+def average_nut_count(dict):
+    total_count = 0
+    count = 0
+
+    for i in dict.values():
+        total_count+=i
+        count+=1
+    
+    return total_count/count
 
 
