@@ -53,6 +53,13 @@ def standard_deviation(data,nutrient):
             
     return ((log_avg_sq/c) - ((log_avg/c)**2))**0.5
 
+def linear_sd(data,nutrient):
+    l=[]
+    for j in data:
+        if(j[1]==int(nutrient)):
+            l.append(j[4])
+    return np.std(l)
+
 # Function for calculating mn
 def mn_calculator(linear_average_conc,sn):
     # if(linear_average_conc==0):
