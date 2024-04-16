@@ -29,10 +29,10 @@ def eq1(data_list, nutrient_code, xn):
     for i in data_list:
         if i[1] == nutrient_code:
             nut_c+=1
-            if i[4] >= xn :
+            if i[4] >= 5e-4  and i[4] <=xn:
                 c+=1
-    if(c>POP/2):
-        c = POP-c
+    # if(c>POP/2):
+        # c = POP-c
     return c, nut_c
 
 """-----------END----------"""
